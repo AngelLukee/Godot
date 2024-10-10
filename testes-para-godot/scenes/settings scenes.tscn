@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://q57qoidulhbe"]
+[gd_scene load_steps=5 format=3 uid="uid://q57qoidulhbe"]
 
 [ext_resource type="Theme" uid="uid://c7lwdwqubog0c" path="res://themes/settings.tres" id="1_cqu0i"]
+[ext_resource type="Script" path="res://script/back_settings.gd" id="2_eoilf"]
+[ext_resource type="Script" path="res://script/nearest.gd" id="3_qjfuj"]
+[ext_resource type="Script" path="res://script/texture.gd" id="4_uhtkl"]
 
 [node name="settings_scene" type="Control"]
 layout_mode = 3
@@ -21,10 +24,35 @@ offset_right = 40.0
 offset_bottom = 40.0
 theme = ExtResource("1_cqu0i")
 
-[node name="Button" type="CheckButton" parent="TextureButton"]
+[node name="Back" type="Button" parent="TextureButton"]
 layout_mode = 0
-offset_left = 777.0
-offset_top = 81.0
+offset_left = 475.0
+offset_top = 439.0
+offset_right = 726.0
+offset_bottom = 479.0
+text = "VOLTAR"
+script = ExtResource("2_eoilf")
+
+[node name="Maximized" type="Button" parent="TextureButton"]
+layout_mode = 0
+offset_left = 909.0
+offset_top = 77.0
 offset_right = 1086.0
-offset_bottom = 138.0
-text = "Desativar nearest "
+offset_bottom = 153.0
+text = "Maximized
+"
+script = ExtResource("3_qjfuj")
+
+[node name="Texture" type="Button" parent="TextureButton"]
+layout_mode = 0
+offset_left = 909.0
+offset_top = 205.0
+offset_right = 1084.0
+offset_bottom = 261.0
+text = "Texture 
+"
+script = ExtResource("4_uhtkl")
+
+[connection signal="pressed" from="TextureButton/Back" to="TextureButton/Back" method="_on_pressed"]
+[connection signal="pressed" from="TextureButton/Maximized" to="TextureButton/Maximized" method="_on_pressed"]
+[connection signal="pressed" from="TextureButton/Texture" to="TextureButton/Texture" method="_on_pressed"]
