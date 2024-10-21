@@ -687,9 +687,6 @@ animations = [{
 "speed": 6.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i1b4q"]
-radius = 6.0
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x7dch"]
 size = Vector2(16, 30)
 
@@ -1070,19 +1067,18 @@ _data = {
 "walking": SubResource("Animation_fok4t")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w15dx"]
+radius = 6.0
+
 [node name="boneco" type="CharacterBody2D"]
 script = ExtResource("1_nkuau")
 
 [node name="sprites_boneco" type="AnimatedSprite2D" parent="."]
 position = Vector2(13, -12)
 sprite_frames = SubResource("SpriteFrames_fwyg0")
-animation = &"dash"
+animation = &"idle"
 frame = 1
 offset = Vector2(-12, -4)
-
-[node name="colisão_boneco" type="CollisionShape2D" parent="."]
-position = Vector2(0, -15)
-shape = SubResource("CapsuleShape2D_i1b4q")
 
 [node name="sword_area" type="Area2D" parent="."]
 
@@ -1106,5 +1102,9 @@ libraries = {
 "": SubResource("AnimationLibrary_86ksy")
 }
 autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -15)
+shape = SubResource("CapsuleShape2D_w15dx")
 
 [connection signal="animation_finished" from="animação_boneco" to="." method="_on_animação_boneco_animation_finished"]

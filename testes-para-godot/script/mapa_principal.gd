@@ -1,10 +1,12 @@
 extends Node2D
 
 
-@onready var xand_script = get_node("root/boneco.gd")
-
-
-
-# Called when the node enters the scene tree for  the first time.
+# Called hen the node enters the scene tree for  the first time.
 func _ready() -> void:
 	pass
+
+func _physics_process(delta: float) -> void:
+	pass
+
+func _on_timer_timeout() -> void:
+	pass # Replace with function body.

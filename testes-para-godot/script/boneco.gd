@@ -1,12 +1,17 @@
 extends CharacterBody2D
 
-const speed = 100
+var _position = self.global_position
+
+var speed = 100
 const jumping = 180
 const gravity = 800
 enum States {idle, running, jumping, falling, waiting}
 var waiting
 var state = States.idle
 const bulletpath = preload("res://scenes/nuts.tscn")
+
+func _process(delta: float) -> void:
+	_position = self.position.x
 
 
 func _physics_process(_delta):
@@ -23,7 +28,6 @@ func _physics_process(_delta):
 			pass
 			
 	move_and_slide()
-
 	
 func idle():
 	velocity.x = 0
@@ -65,4 +69,6 @@ func falling(_delta):
 func shotting():
 	pass
 
+func raycast():
+	pass
 	
