@@ -3,15 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ij2neqedjv3q"
-path="res://.godot/imported/player katana running attack.aseprite-8b84a6565d66cbb619593671d15439fd.ctex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
-source_file="res://Character/Asset Packs 1-5/Asset Packs 1-4 (final)/Asset Pack-V4/Player Katana Run Attack/player katana running attack.aseprite"
-dest_files=["res://.godot/imported/player katana running attack.aseprite-8b84a6565d66cbb619593671d15439fd.ctex"]
+source_file="res://personagem/Asset Packs 1-5/Asset Packs 1-4 (final)/Asset Pack-V4/Player Katana Run Attack/player katana running attack.aseprite"
 
 [params]
 

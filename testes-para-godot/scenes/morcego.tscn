@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckbpixulno8v0"]
+
+[ext_resource type="Script" path="res://script/morcego.gd" id="1_7es3j"]
+[ext_resource type="Texture2D" uid="uid://bikm7iggo6tbf" path="res://icon.svg" id="2_qhyc0"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bggie"]
+radius = 45.0
+height = 90.0
+
+[node name="Morcego" type="CharacterBody2D"]
+scale = Vector2(0.8, 0.8)
+script = ExtResource("1_7es3j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.26166, 0.109672, 0.149217, 1)
+position = Vector2(5.96046e-08, -45)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_qhyc0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -45)
+shape = SubResource("CapsuleShape2D_bggie")
