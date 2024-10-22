@@ -95,7 +95,7 @@ func fling():
 	tween.tween_property($Sprite2D, "modulate", Color.CRIMSON, 2)
 	await tween.finished
 	velocity.y = -speed
-	$mira_player.target_position = Boneco._position
+
 	
 	
 	if esquilo.position.y <= 470:
