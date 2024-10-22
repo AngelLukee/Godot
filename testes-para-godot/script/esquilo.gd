@@ -11,12 +11,12 @@ var bulletpath = preload("res://scenes/nuts.tscn")
 @onready var shoot : Timer = $shooting
 @onready var mira_player: RayCast2D = $mira_player
 @onready var opa = $"."
-var player
+var player 
 
 func _ready() -> void:
 	var mirando : Vector2 = $mira_player.position
 	player = get_parent().find_child("boneco")
-	$mira_player.target_position = to_local(player.position)
+	$mira_player.target_position = to_local(player.position * -1)
 	
 func _physics_process(_delta):
 	match state:
