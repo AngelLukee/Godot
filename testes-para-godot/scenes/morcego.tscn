@@ -20,3 +20,9 @@ texture = ExtResource("2_qhyc0")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -45)
 shape = SubResource("CapsuleShape2D_bggie")
+
+[node name="timer para onda" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.6
+
+[connection signal="timeout" from="timer para onda" to="." method="_on_timer_para_onda_timeout"]

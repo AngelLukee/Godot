@@ -11,12 +11,14 @@ var bulletpath = preload("res://scenes/nuts.tscn")
 @onready var shoot : Timer = $shooting
 @onready var mira_player: RayCast2D = $mira_player
 @onready var opa = $"."
-var player
+@onready var player = get_tree().get_first_node_in_group("boneco")
 
 func _ready() -> void:
 	var mirando : Vector2 = $mira_player.position
-	player = get_parent().find_child("boneco")
-	$mira_player.target_position = to_local(player.position)
+	direction = global_position.direction_to(player.global_position)
+	$mira_player.target_position = direction
+	
+	
 	
 func _physics_process(_delta):
 	match state:
@@ -34,29 +36,19 @@ func _physics_process(_delta):
 			$Label.text = "fly"
 		states.waiting:
 			$mira_player.target_position.x = player.position.x
-			print(player.position.x)
 		states.shooting:
 			shooting()
 			$Label.text = "shoot"
 	
 	move_and_slide()
+	var direction_to_player = global_position.direction_to(player.global_position)
+	$mira_player.cast_to = direction_to_player 
+	$mira_player.force_raycast_update()
+	var collision_object = $mira_player.get_collider()
 	
 	if $detector.is_colliding():
 		state = states.idle
 		$detector.enabled = false
-
-	
-
-
-
-
-
-
-
-
-
-
-
 
 func idle():
 	
@@ -95,14 +87,10 @@ func fling():
 	tween.tween_property($Sprite2D, "modulate", Color.CRIMSON, 2)
 	await tween.finished
 	velocity.y = -speed
-
-	
 	
 	if esquilo.position.y <= 470:
 		shoot.start()
 		velocity.y = 0
-		
-		
 		
 func shooting():
 	
