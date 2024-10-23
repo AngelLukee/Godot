@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://d4bqgbh5bwiur"]
+[gd_scene load_steps=8 format=3 uid="uid://d4bqgbh5bwiur"]
 
 [ext_resource type="Script" path="res://scenes/other_map.gd" id="1_arqeq"]
 [ext_resource type="Texture2D" uid="uid://djb4txdofsa0l" path="res://tiles/Textures-16.png" id="1_msnue"]
 [ext_resource type="PackedScene" uid="uid://dwhxr5xmal0lu" path="res://scenes/boneco.tscn" id="2_l5dp4"]
 [ext_resource type="PackedScene" uid="uid://ckbpixulno8v0" path="res://scenes/morcego.tscn" id="3_aoqdr"]
+[ext_resource type="Texture2D" uid="uid://bikm7iggo6tbf" path="res://icon.svg" id="5_s0hvq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ivh3s"]
 texture = ExtResource("1_msnue")
@@ -467,7 +468,17 @@ position = Vector2(728, 613)
 scale = Vector2(1.5, 1.5)
 
 [node name="Morcego" parent="." instance=ExtResource("3_aoqdr")]
-position = Vector2(726, 431)
+position = Vector2(564, 609)
 
 [node name="primeiro marcador" type="Marker2D" parent="."]
-position = Vector2(726, 455)
+position = Vector2(716, 449)
+
+[node name="segundo marcado" type="Marker2D" parent="."]
+position = Vector2(773, 435)
+skew = -0.733038
+
+[node name="Icon" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(725, 551)
+scale = Vector2(3.61719, 1)
+texture = ExtResource("5_s0hvq")

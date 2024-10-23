@@ -3,11 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://jbfmgqsfkj2t"
-valid=false
+path="res://.godot/imported/player land 48x48.aseprite-851796a6541cd00ed866311ae455559d.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://personagem/Asset Packs 1-5/Asset Packs 1-4 (final)/Asset Pack-V1/Player Land/player land 48x48.aseprite"
+dest_files=["res://.godot/imported/player land 48x48.aseprite-851796a6541cd00ed866311ae455559d.ctex"]
 
 [params]
 

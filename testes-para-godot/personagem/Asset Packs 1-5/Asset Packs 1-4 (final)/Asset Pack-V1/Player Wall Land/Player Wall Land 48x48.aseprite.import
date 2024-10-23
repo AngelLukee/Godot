@@ -3,11 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dh7hlbvo00y4p"
-valid=false
+path="res://.godot/imported/Player Wall Land 48x48.aseprite-1c9fa3b6ec5bccc6d8e7b86559cdf99c.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://personagem/Asset Packs 1-5/Asset Packs 1-4 (final)/Asset Pack-V1/Player Wall Land/Player Wall Land 48x48.aseprite"
+dest_files=["res://.godot/imported/Player Wall Land 48x48.aseprite-1c9fa3b6ec5bccc6d8e7b86559cdf99c.ctex"]
 
 [params]
 

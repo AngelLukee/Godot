@@ -31,6 +31,10 @@ window/stretch/aspect="expand"
 
 enabled=PackedStringArray("res://addons/nklbdev.aseprite_importers/plugin.cfg")
 
+[global_group]
+
+boneco=""
+
 [importer_defaults]
 
 font_data_dynamic={
