@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Saida de emergencia"
-run/main_scene="res://scenes/other_map.tscn"
+run/main_scene="res://scenes/mapa_principal.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 

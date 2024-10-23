@@ -27,8 +27,7 @@ func idle():
 	var position_idle = Vector2(727, 283)
 	var going = (position_idle).normalized()
 	move_and_collide(going * speed)
-	if position_idle == Vector2(727, 283):
-		state = states.chasing
+
 	
 func chasing(delta):
 	pass

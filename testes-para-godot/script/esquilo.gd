@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const speed = 50
+var speed = 3000
 const gravity = 800
 enum states {moving, idle, falling, time_waiting, waiting, fling, shooting}
 var state = states.waiting
@@ -11,10 +11,25 @@ var bulletpath = preload("res://scenes/nuts.tscn")
 @onready var shoot : Timer = $shooting
 @onready var mira_player: RayCast2D = $mira_player
 var player 
+var player_position
+
+
 
 func _ready() -> void:
 	pass
 	
+func _process(delta: float):
+	
+	player = get_parent().get_node("boneco")
+	player_position = player.position
+	$mira_player.target_position = player_position - position
+	
+	
+	
+	
+
+
+
 func _physics_process(_delta):
 	match state:
 		states.idle:
@@ -80,17 +95,13 @@ func fling():
 	velocity.y = -speed
 	
 	if esquilo.position.y <= 470:
-		shoot.start()
 		velocity.y = 0
 		
 func shooting():
-	
-	print("aqui")
-	var bullet = bulletpath.instantiate()
-	get_parent().add_child(bullet)
-	bullet.position = $Marker2D.global_position
-	
+	pass
 
 func _on_shooting_timeout() -> void:
-	print("here")
-	state = states.shooting
+	var bullet = bulletpath.instantiate()
+	get_parent().add_child(bullet)
+	bullet.global_position = $Marker2D.global_position
+	bullet.global_position = bullet.global_position.move_toward(player_position, speed * delta)
