@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
-const speed = 900
+var speed = 130
+var velocit = Vector2(0, 0)
 
 func _physics_process(delta):
-	pass
+	
+	var collision = move_and_collide(velocit.normalized() * delta * speed)

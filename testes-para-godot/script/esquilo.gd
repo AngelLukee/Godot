@@ -22,11 +22,10 @@ func _process(delta: float):
 	
 	player = get_parent().get_node("boneco")
 	player_position = player.position
-	$mira_player.target_position = player_position - position
 	
+	$mira_player.target_position = $"../boneco/Camera_Principal_Xand".global_position - self.global_position
 	
-	
-	
+
 
 
 
@@ -103,5 +102,5 @@ func shooting():
 func _on_shooting_timeout() -> void:
 	var bullet = bulletpath.instantiate()
 	get_parent().add_child(bullet)
-	bullet.global_position = $Marker2D.global_position
-	bullet.global_position = bullet.global_position.move_toward(player_position, speed * delta)
+	bullet.position = $mira_player.global_position
+	bullet.velocit = $mira_player.target_position
