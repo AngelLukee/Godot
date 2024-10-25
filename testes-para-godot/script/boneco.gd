@@ -5,19 +5,21 @@ extends CharacterBody2D
 var speed = 140
 const jumping = 200
 const gravity = 800
-enum States {idle, running, jumping, falling, waiting}
+enum States {idle, running, jumping, falling, waiting, auto}
 var waiting
 var state = States.idle
 const bulletpath = preload("res://scenes/nuts.tscn")
-
-
+var speed_auto : int = 30
+var camera : bool = false
 
 
 func _process(delta: float) -> void:
-	pass
+	if camera == true:
+		state = States.auto
+		camera = false
 
 
-func _physics_process(_delta):
+func _physics_process(delta):
 	match state:
 		States.idle:
 			idle()
@@ -26,9 +28,11 @@ func _physics_process(_delta):
 		States.jumping:
 			_jumping()
 		States.falling:
-			falling(_delta)
+			falling(delta)
 		waiting:
-			pass
+			waiting_()
+		States.auto:
+			automatico(delta)
 			
 	move_and_slide()
 	
@@ -86,3 +90,12 @@ func shotting():
 func raycast():
 	pass
 	
+func automatico(delta):
+	velocity.x = 0
+	velocity.x = speed_auto
+	print(position.x)
+	if position.x >= 807:
+		state = States.idle
+		
+func waiting_():
+	velocity.x = 0

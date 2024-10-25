@@ -1,15 +1,15 @@
 extends CharacterBody2D
 
-
-var speed = 300
-const gravity = 800
-enum states {moving, idle, falling, time_waiting, waiting, fling, shooting}
-var state = states.waiting
-var direction = -1
+@onready var shoot : Timer = $shoot
+@onready var player_cast: RayCast2D = $mira_player
 @onready var esquilo: CharacterBody2D = $"."
 var bulletpath = preload("res://scenes/nuts.tscn")
-@onready var shoot : Timer = $shooting
-@onready var player_cast: RayCast2D = $mira_player
+
+var speed = 300
+var gravity = 10
+enum states {moving, idle, falling, time_waiting, waiting, fling, shooting, tween, auto}
+var state = states.idle
+var direction = -1
 var player 
 var player_position
 
@@ -26,36 +26,31 @@ func _process(delta: float):
 	player_cast.target_position = $"../boneco/Camera_Principal_Xand".global_position - global_position
 	
 
-func _physics_process(_delta):
+func _physics_process(delta):
 	match state:
 		states.idle:
 			idle()
-			$Label.text = "idle"
 		states.moving:
 			moving()
-			$Label.text = "idle"
 		states.falling:
-			falling(_delta)
-			$Label.text = "falling"
+			falling(delta)
 		states.fling:
 			fling()
-			$Label.text = "fly"
 		states.waiting:
 			pass
 		states.shooting:
 			shooting()
-			$Label.text = "shoot"
-	
+		states.tween:
+			tween(delta)
 	move_and_slide()
 	
-	if $detector.is_colliding():
-		state = states.idle
-		$detector.enabled = false
+
 
 func idle():
 	
 	if not is_on_floor():
 		state = states.falling
+		
 	if is_on_floor():
 		velocity.x = direction * speed
 	
@@ -77,12 +72,12 @@ func moving():
 	
 	
 func falling(_delta):
-	
-	velocity.y += gravity * _delta
+	velocity.y += gravity 
 	if is_on_floor():
 		velocity.y = 0 
 		state = states.idle
 		
+
 func fling():
 	velocity.x = 0
 	var tween = create_tween()
@@ -92,11 +87,17 @@ func fling():
 	
 	if esquilo.position.y <= 470:
 		velocity.y = 0
-		
-func shooting():
-	pass
 
-func _on_shooting_timeout() -> void:
+
+func shooting():
+	velocity.x = 0
+
+func tween(delta):
+	velocity.x = speed
+	state = states.shooting
+
+func _on_shooting_timeout():
+
 	var nozes = bulletpath.instantiate()
 	get_parent().add_child(nozes)
 	nozes.position = player_cast.global_position
