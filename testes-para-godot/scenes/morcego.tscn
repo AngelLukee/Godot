@@ -15,5 +15,6 @@ texture = ExtResource("2_qhyc0")
 
 [node name="timer para onda" type="Timer" parent="."]
 wait_time = 0.6
+autostart = true
 
 [connection signal="timeout" from="timer para onda" to="." method="_on_timer_para_onda_timeout"]

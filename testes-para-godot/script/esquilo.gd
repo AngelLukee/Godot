@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-var speed = 3000
+var speed = 300
 const gravity = 800
 enum states {moving, idle, falling, time_waiting, waiting, fling, shooting}
 var state = states.waiting
@@ -9,7 +9,7 @@ var direction = -1
 @onready var esquilo: CharacterBody2D = $"."
 var bulletpath = preload("res://scenes/nuts.tscn")
 @onready var shoot : Timer = $shooting
-@onready var mira_player: RayCast2D = $mira_player
+@onready var player_cast: RayCast2D = $mira_player
 var player 
 var player_position
 
@@ -23,11 +23,8 @@ func _process(delta: float):
 	player = get_parent().get_node("boneco")
 	player_position = player.position
 	
-	$mira_player.target_position = $"../boneco/Camera_Principal_Xand".global_position - self.global_position
+	player_cast.target_position = $"../boneco/Camera_Principal_Xand".global_position - global_position
 	
-
-
-
 
 func _physics_process(_delta):
 	match state:
@@ -100,7 +97,7 @@ func shooting():
 	pass
 
 func _on_shooting_timeout() -> void:
-	var bullet = bulletpath.instantiate()
-	get_parent().add_child(bullet)
-	bullet.position = $mira_player.global_position
-	bullet.velocit = $mira_player.target_position
+	var nozes = bulletpath.instantiate()
+	get_parent().add_child(nozes)
+	nozes.position = player_cast.global_position
+	nozes.velocit = player_cast.target_position

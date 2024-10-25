@@ -477,10 +477,6 @@ position_smoothing_speed = 6.0
 [node name="Boss_Esquilo" parent="." instance=ExtResource("4_j60ut")]
 position = Vector2(992, 464)
 
-[node name="mira_player" parent="Boss_Esquilo" index="7"]
-position = Vector2(0, 0)
-target_position = Vector2(0, 48)
-
 [node name="Camera_Esquilo_boss" type="Camera2D" parent="Boss_Esquilo"]
 position = Vector2(0, -30)
 enabled = false
@@ -488,10 +484,3 @@ zoom = Vector2(3, 3)
 
 [node name="detector" type="RayCast2D" parent="Boss_Esquilo"]
 position = Vector2(-325, 38)
-
-[node name="Camera_Boss_Fight" type="Camera2D" parent="."]
-position = Vector2(904, 488)
-enabled = false
-zoom = Vector2(2.5, 2.5)
-
-[editable path="Boss_Esquilo"]

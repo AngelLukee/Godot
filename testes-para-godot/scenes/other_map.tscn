@@ -468,14 +468,13 @@ position = Vector2(728, 613)
 scale = Vector2(1.5, 1.5)
 
 [node name="Morcego" parent="." instance=ExtResource("3_aoqdr")]
-position = Vector2(564, 609)
+position = Vector2(734, 375)
 
 [node name="primeiro marcador" type="Marker2D" parent="."]
-position = Vector2(716, 449)
+position = Vector2(734, 381)
 
 [node name="segundo marcado" type="Marker2D" parent="."]
-position = Vector2(773, 435)
-skew = -0.733038
+position = Vector2(771, 381)
 
 [node name="Icon" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0)

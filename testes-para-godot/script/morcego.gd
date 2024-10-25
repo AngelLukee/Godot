@@ -24,9 +24,7 @@ func _physics_process(delta):
 			chasing(delta)
 			
 func idle():
-	var position_idle = Vector2(727, 283)
-	var going = (position_idle).normalized()
-	move_and_collide(going * speed)
+	pass
 
 	
 func chasing(delta):
@@ -34,20 +32,13 @@ func chasing(delta):
 
 
 func _on_timer_para_onda_timeout():
-	var waves = ondas.instantiate()
-	get_parent().add_child(waves)
-	waves.position = $"../primeiro marcador".global_position
-	print(waves.position)
-	var tween_1 = create_tween()
-	tween_1.tween_property(waves, "position", Vector2(716, 628), 2.5)
+	var ondas1 = ondas.instantiate()
+	get_parent().add_child(ondas1)
+	ondas1.position = $"../segundo marcado".global_position
+	ondas1.rotation = 1.0
+	ondas1.velocit = Vector2(188, 222)
 	var tween = create_tween()
-	tween.tween_property(waves, "scale", Vector2(4,4), 3)
+	tween.tween_property(ondas1, "scale", Vector2(3, 3), 4.5)
 	
-	var waves2 = ondas.instantiate()
-	get_parent().add_child(waves2)
-	waves2.position = $"../segundo marcado".global_position
-	waves2.rotation = -30.5
-	var tween2_1 = create_tween()
-	tween2_1.tween_property(waves2, "position", Vector2(942, 628), 3)
-	var tween2 = create_tween()
-	tween2.tween_property(waves2, "scale", Vector2(4,4), 3)
+	
+	

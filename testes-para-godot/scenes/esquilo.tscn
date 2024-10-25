@@ -41,7 +41,6 @@ offset_right = 23.0
 offset_bottom = 24.0
 
 [node name="mira_player" type="RayCast2D" parent="."]
-position = Vector2(0, -32)
 target_position = Vector2(0, 60)
 
 [connection signal="timeout" from="shooting" to="." method="_on_shooting_timeout"]
